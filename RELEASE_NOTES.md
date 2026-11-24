@@ -4,6 +4,23 @@
 
 ---
 
+## v1.0.1 (24 November 2026): hotfix
+
+### Bug fixes
+- **Log in / Create account button did nothing on phones.** On screens 600px wide or narrower, a decorative layer at the bottom of the login card covered the button and swallowed taps. The layer now sits behind the form and ignores taps. ([details](docs/HOTFIX_AND_ROLLBACK.md))
+
+### Known issues
+- Same as v1.0.0, except that login now works on phones.
+
+### Quality
+- New regression test TC-16 for the mobile login button; 16 of 16 automated tests passed.
+- Re-tested in a 375x812 phone viewport: tapping **Log in** with valid credentials opens the task list.
+
+### Rollback
+If v1.0.1 causes problems, production can be returned to v1.0.0 with Vercel Instant Rollback. No data migration is needed. Procedure: [`docs/HOTFIX_AND_ROLLBACK.md`](docs/HOTFIX_AND_ROLLBACK.md#6-rollback-procedure-reverting-to-v100-if-v101-fails).
+
+---
+
 ## v1.0.0 (24 November 2026)
 
 First public release of Student Task Manager, a simple web app that helps college students keep track of coursework and errands.

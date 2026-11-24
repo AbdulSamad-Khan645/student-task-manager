@@ -218,6 +218,7 @@ button:focus-visible {
 
 .auth-card {
   position: relative;
+  isolation: isolate;
   width: 100%;
   max-width: 400px;
   padding: 2rem;
@@ -336,10 +337,13 @@ button:focus-visible {
     padding: 1.5rem 1.25rem 3.5rem;
   }
 
-  /* Decorative accent wave along the bottom of the card. */
+  /* Decorative accent wave along the bottom of the card. It must stay behind
+     the form and ignore taps, otherwise it covers the Log in button (v1.0.1). */
   .auth-card::after {
     content: '';
     position: absolute;
+    z-index: -1;
+    pointer-events: none;
     left: 0;
     right: 0;
     bottom: 0;
