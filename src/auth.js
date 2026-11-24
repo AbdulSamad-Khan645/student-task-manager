@@ -15,7 +15,7 @@ export class AuthError extends Error {
 }
 
 function normalizeEmail(email) {
-  return String(email ?? '').trim();
+  return String(email ?? '').trim().toLowerCase();
 }
 
 function toHex(bytes) {
