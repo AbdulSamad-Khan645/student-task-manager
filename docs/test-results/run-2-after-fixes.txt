@@ -1,0 +1,31 @@
+
+> student-task-manager@0.1.0 test
+> node --test --test-reporter=spec tests/*.test.js
+
+▶ Signup and Login
+  ✔ TC-01 [Critical] Sign up with valid details creates the account and logs the user in (13.7354ms)
+  ✔ TC-02 Sign up with a missing name, invalid email or short password is rejected (2.1302ms)
+  ✔ TC-03 Sign up with an email that is already registered is rejected (3.0806ms)
+  ✔ TC-04 [Critical] Log in with a registered email and correct password (1.7179ms)
+  ✔ TC-05 [Critical] Log in with a wrong password is rejected and no session is created (1.718ms)
+  ✔ TC-06 Log in with an email that is not registered is rejected (0.6315ms)
+  ✔ TC-07 Log in works when the email is typed in a different letter case (2.0182ms)
+  ✔ TC-08 Log out clears the session (1.2346ms)
+  ✔ TC-09 [Critical] Passwords are stored as salted hashes, never as plain text (2.0191ms)
+✔ Signup and Login (31.0654ms)
+▶ Add, Delete and Complete Task
+  ✔ TC-10 [Critical] Add a task with a valid title (7.5313ms)
+  ✔ TC-11 Add a task with an empty, blank or too-long title is rejected (1.2418ms)
+  ✔ TC-12 [Critical] Tasks persist after a reload and are private to each user (1.0896ms)
+  ✔ TC-13 [Critical] Delete removes only the selected task (0.9316ms)
+  ✔ TC-14 Delete a task that does not exist shows an error and changes nothing (3.4561ms)
+  ✔ TC-15 [Critical] Mark a task as complete, then reopen it (0.893ms)
+✔ Add, Delete and Complete Task (17.2713ms)
+ℹ tests 15
+ℹ suites 2
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 184.9199
