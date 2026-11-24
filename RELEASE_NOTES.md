@@ -1,0 +1,33 @@
+# Release Notes: Student Task Manager
+
+**Live deployment:** _recorded after the first production deployment_
+
+---
+
+## v1.0.0 (24 November 2026)
+
+First public release of Student Task Manager, a simple web app that helps college students keep track of coursework and errands.
+
+### New features
+- **Sign up** with your name, email and a password (at least 6 characters).
+- **Log in / log out.** Your session is remembered until you log out.
+- **Add tasks** with a title of up to 120 characters.
+- **Delete tasks** you no longer need.
+- **Mark tasks as complete** (and untick to reopen them), with a "completed" counter.
+- **Private task lists:** each student only sees their own tasks, and tasks are kept after a page reload.
+- Responsive layout with automatic light and dark themes.
+
+### Bug fixes (found during pre-release testing)
+- **BUG-01:** Task titles made only of spaces are now rejected instead of creating blank tasks.
+- **BUG-02:** Logging in no longer fails when the email is typed with different capital letters.
+- **BUG-03:** Deleting a task no longer deletes other tasks that were created at the same moment (each task now has a unique id).
+
+### Known issues
+- Accounts and tasks are saved in your browser (localStorage). They do not sync between devices or browsers, and clearing your browser data deletes them.
+- Sign-in runs entirely in the browser; it is suitable for coursework, not for sensitive data. There is no password reset.
+- Deleting a task is immediate; there is no undo.
+- Not yet tested on mobile phones or tablets.
+
+### Quality
+- 15 automated test cases, 15 passed (8 of 8 critical). See `docs/TEST_REPORT.md`.
+- Manual UI smoke test on desktop: 7 of 7 passed.

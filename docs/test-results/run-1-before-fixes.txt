@@ -1,0 +1,81 @@
+
+> student-task-manager@0.1.0 test
+> node --test --test-reporter=spec tests/*.test.js
+
+▶ Signup and Login
+  ✔ TC-01 [Critical] Sign up with valid details creates the account and logs the user in (20.5975ms)
+  ✔ TC-02 Sign up with a missing name, invalid email or short password is rejected (1.9948ms)
+  ✔ TC-03 Sign up with an email that is already registered is rejected (2.3601ms)
+  ✔ TC-04 [Critical] Log in with a registered email and correct password (1.8044ms)
+  ✔ TC-05 [Critical] Log in with a wrong password is rejected and no session is created (1.4637ms)
+  ✔ TC-06 Log in with an email that is not registered is rejected (0.6599ms)
+  ✖ TC-07 Log in works when the email is typed in a different letter case (2.5502ms)
+  ✔ TC-08 Log out clears the session (2.9228ms)
+  ✔ TC-09 [Critical] Passwords are stored as salted hashes, never as plain text (2.2713ms)
+✖ Signup and Login (39.73ms)
+▶ Add, Delete and Complete Task
+  ✔ TC-10 [Critical] Add a task with a valid title (2.9584ms)
+  ✖ TC-11 Add a task with an empty, blank or too-long title is rejected (2.1184ms)
+  ✔ TC-12 [Critical] Tasks persist after a reload and are private to each user (0.551ms)
+  ✖ TC-13 [Critical] Delete removes only the selected task (1.9353ms)
+  ✔ TC-14 Delete a task that does not exist shows an error and changes nothing (0.7819ms)
+  ✔ TC-15 [Critical] Mark a task as complete, then reopen it (1.4725ms)
+✖ Add, Delete and Complete Task (12.2151ms)
+ℹ tests 15
+ℹ suites 2
+ℹ pass 12
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 195.4144
+
+✖ failing tests:
+
+test at tests\auth.test.js:61:3
+✖ TC-07 Log in works when the email is typed in a different letter case (2.5502ms)
+  Error [AuthError]: Incorrect email or password.
+      at Object.login (file:///.../student-task-manager/src/auth.js:88:15)
+      at TestContext.<anonymous> (file:///.../student-task-manager/tests/auth.test.js:64:16)
+      at async Test.run (node:internal/test_runner/test:1404:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    code: 'INVALID_CREDENTIALS'
+  }
+
+test at tests\tasks.test.js:25:3
+✖ TC-11 Add a task with an empty, blank or too-long title is rejected (2.1184ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception: accepted "   "
+      at TestContext.<anonymous> (file:///.../student-task-manager/tests/tasks.test.js:27:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: { code: 'TITLE_REQUIRED' },
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\tasks.test.js:44:3
+✖ TC-13 [Critical] Delete removes only the selected task (1.9353ms)
+  AssertionError [ERR_ASSERTION]: other tasks must not be deleted
+  + actual - expected
+  
+  + []
+  - [
+  -   'Buy lab notebook',
+  -   'Prepare presentation'
+  - ]
+  
+      at TestContext.<anonymous> (file:///.../student-task-manager/tests/tasks.test.js:51:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ 'Buy lab notebook', 'Prepare presentation' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

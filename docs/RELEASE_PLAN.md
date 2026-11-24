@@ -26,7 +26,13 @@ Out of scope for v1.0.0: task due dates, editing task titles, password reset, cl
 
 ## 2. Bug fixes
 
-_To be filled in from pre-release testing on `release/v1.0.0`. Only bug fixes (no new features) may be committed to the release branch._
+Only bug fixes (no new features) may be committed to the release branch. These were found during pre-release testing and fixed on `release/v1.0.0`:
+
+| Bug ID | Severity | Bug | Found by | Fix |
+|---|---|---|---|---|
+| BUG-01 | Medium | Whitespace-only task titles created blank tasks | TC-11 | Trim the title before validating it |
+| BUG-02 | High | Login failed when the email's letter case differed from signup | TC-07 | Trim and lower-case emails at signup and login |
+| BUG-03 | Critical | Tasks created in the same millisecond shared an id, so deleting one deleted all of them (data loss) | TC-13 | Unique ids from `crypto.randomUUID()` |
 
 ## 3. Timeline
 
@@ -43,15 +49,15 @@ _To be filled in from pre-release testing on `release/v1.0.0`. Only bug fixes (n
 ## 4. Release checklist
 
 **Before the release**
-- [ ] All planned features (F-01 to F-06) merged into `develop`
-- [ ] `release/v1.0.0` branch created from `develop`
-- [ ] Version bumped to `1.0.0` in `package.json` and `src/version.js`
-- [ ] Test cases written for Login, Add Task, Delete Task and Mark Complete
-- [ ] Automated test suite run (`npm test`) and results recorded in `docs/TEST_REPORT.md`
-- [ ] Manual UI smoke test in a browser
-- [ ] **All critical test cases pass** (release gate)
-- [ ] Release-blocking bugs fixed on the release branch and re-tested
-- [ ] `RELEASE_NOTES.md` written (features, bug fixes, known issues)
+- [x] All planned features (F-01 to F-06) merged into `develop`
+- [x] `release/v1.0.0` branch created from `develop`
+- [x] Version bumped to `1.0.0` in `package.json` and `src/version.js`
+- [x] Test cases written for Login, Add Task, Delete Task and Mark Complete
+- [x] Automated test suite run (`npm test`) and results recorded in `docs/TEST_REPORT.md`
+- [x] Manual UI smoke test in a browser
+- [x] **All critical test cases pass** (release gate)
+- [x] Release-blocking bugs fixed on the release branch and re-tested
+- [x] `RELEASE_NOTES.md` written (features, bug fixes, known issues)
 
 **Release**
 - [ ] `release/v1.0.0` merged into `main` with `--no-ff`
