@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Task Manager</title>
+    <meta name="description" content="A simple task manager for college students." />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">&#10003;</span>
+        Student Task Manager
+      </div>
+      <div class="user-area" id="user-area" hidden>
+        <span class="user-name" id="user-name"></span>
+        <button type="button" class="btn btn-ghost" id="logout-btn">Log out</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="auth-view" id="auth-view" aria-labelledby="auth-title">
+        <div class="auth-card">
+          <h1 id="auth-title">Welcome back</h1>
+          <p class="muted" id="auth-subtitle">Log in to see your tasks.</p>
+
+          <div class="tabs" role="tablist" aria-label="Log in or sign up">
+            <button type="button" role="tab" id="tab-login" aria-selected="true" aria-controls="auth-form">
+              Log in
+            </button>
+            <button type="button" role="tab" id="tab-signup" aria-selected="false" aria-controls="auth-form">
+              Sign up
+            </button>
+          </div>
+
+          <p class="form-error" id="auth-error" role="alert" hidden></p>
+
+          <form id="auth-form" novalidate>
+            <label class="field" id="name-field" hidden>
+              <span>Full name</span>
+              <input id="name" name="name" type="text" autocomplete="name" />
+            </label>
+            <label class="field">
+              <span>Email</span>
+              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" />
+            </label>
+            <label class="field">
+              <span>Password</span>
+              <input id="password" name="password" type="password" autocomplete="current-password" />
+            </label>
+            <button type="submit" class="btn btn-primary btn-block" id="auth-submit">Log in</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="tasks-view" id="tasks-view" aria-labelledby="tasks-title" hidden>
+        <div class="tasks-header">
+          <h1 id="tasks-title">My tasks</h1>
+          <p class="muted" id="task-stats"></p>
+        </div>
+
+        <form class="task-form" id="task-form" novalidate>
+          <label for="task-title" class="sr-only">New task</label>
+          <input id="task-title" type="text" maxlength="120" autocomplete="off" placeholder="e.g. Submit SCD lab report" />
+          <button type="submit" class="btn btn-primary" id="add-task-btn">Add task</button>
+        </form>
+        <p class="form-error" id="task-error" role="alert" hidden></p>
+
+        <ul class="task-list" id="task-list" aria-label="Tasks"></ul>
+        <p class="empty-state" id="empty-state">No tasks yet. Add your first one above.</p>
+      </section>
+    </main>
+
+    <footer class="footer">Student Task Manager <span id="app-version"></span></footer>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
