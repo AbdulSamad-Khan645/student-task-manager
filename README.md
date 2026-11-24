@@ -24,6 +24,7 @@ npm test       # runs the automated test suite
 | [`docs/RELEASE_PLAN.md`](docs/RELEASE_PLAN.md) | Release plan for v1.0.0: scope, dates, checklist, go/no-go criteria |
 | [`docs/TEST_REPORT.md`](docs/TEST_REPORT.md) | Pre-release test cases and results |
 | [`RELEASE_NOTES.md`](RELEASE_NOTES.md) | What changed in each version, known issues, live URL |
+| [`docs/HOTFIX_AND_ROLLBACK.md`](docs/HOTFIX_AND_ROLLBACK.md) | v1.0.1 mobile login hotfix and the rollback procedure |
 
 ### Branching strategy
 
