@@ -1,6 +1,6 @@
 {
   "name": "student-task-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Task manager for college students: sign up, log in, add, delete and complete tasks.",
   "type": "module",

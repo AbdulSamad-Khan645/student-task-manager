@@ -70,3 +70,13 @@ Raw output of run 1: [`test-results/run-1-before-fixes.txt`](test-results/run-1-
 ## 5. Release decision
 
 All critical test cases pass and no release-blocking defect is open. **Decision: GO for v1.0.0.**
+
+---
+
+## 6. Addendum: v1.0.1 hotfix regression test
+
+| Test ID | Test Case | Expected Result | Actual Result | Status |
+|---|---|---|---|---|
+| TC-16 | **[Critical]** On a 375px-wide phone screen, tap **Log in** with valid credentials | The tap reaches the button; user is logged in | v1.0.0: tap hit the card's decorative overlay, nothing happened (**Fail**). v1.0.1: tap reaches `BUTTON#auth-submit`, user logged in | Pass (v1.0.1) |
+
+Full suite on `hotfix/login-bug`: 16 executed, 16 passed. Output: [`test-results/run-3-hotfix-v1.0.1.txt`](test-results/run-3-hotfix-v1.0.1.txt).
