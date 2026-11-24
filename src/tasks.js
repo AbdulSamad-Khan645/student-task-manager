@@ -34,10 +34,10 @@ export function createTaskStore(storage, ownerEmail) {
     },
 
     add(title) {
-      if (!title) {
+      const cleanTitle = String(title ?? '').trim();
+      if (!cleanTitle) {
         throw new TaskError('TITLE_REQUIRED', 'Task title cannot be empty.');
       }
-      const cleanTitle = String(title).trim();
       if (cleanTitle.length > MAX_TITLE_LENGTH) {
         throw new TaskError(
           'TITLE_TOO_LONG',
