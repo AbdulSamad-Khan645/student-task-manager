@@ -1,0 +1,14 @@
+{
+  "name": "student-task-manager",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Task manager for college students: sign up, log in, add, delete and complete tasks.",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node --test --test-reporter=spec tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
