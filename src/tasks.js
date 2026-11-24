@@ -45,7 +45,7 @@ export function createTaskStore(storage, ownerEmail) {
         );
       }
       const task = {
-        id: String(Date.now()),
+        id: crypto.randomUUID(),
         title: cleanTitle,
         completed: false,
         createdAt: new Date().toISOString(),
